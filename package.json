@@ -4,7 +4,7 @@
   "main": "main.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --open"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
+    "@webcomponents/webcomponentsjs": "^2.4.0",
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0"
