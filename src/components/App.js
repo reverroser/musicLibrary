@@ -2,7 +2,6 @@ import './Header/Header';
 
 class App extends HTMLElement {
     constructor() {
-        // always call super() first to run the parent class
         super();
         this.render();
     }

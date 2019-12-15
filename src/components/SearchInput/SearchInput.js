@@ -6,13 +6,17 @@ class SearchInput extends HTMLElement {
     constructor() {
         super();
         this.render();
-        // Everytime the user types, .onInput is called
+        // Everytime the user types, onInput is called
         $('#searchInput')[0].addEventListener('input', this.onInput);
     }
 
     onInput(event) {
+        const term = event.target.value;
+        // Save to localStorage the value of the search
+        localStorage.setItem('term', term);
+        // Fetch the search by term
         fetchSearch({
-            term: event.target.value,
+            term,
         });
     }
 
