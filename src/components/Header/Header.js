@@ -1,3 +1,4 @@
+import '../SearchInput/SearchInput';
 import './Header.scss';
 
 class Header extends HTMLElement {
@@ -11,6 +12,7 @@ class Header extends HTMLElement {
         this.innerHTML = `
             <div class="header">
                 I am a header
+                <search-input />
             </div>
         `;
     }
