@@ -2,10 +2,18 @@ const baseUrl = 'https://itunes.apple.com';
 
 /**
  * This function does a GET request to the search endpoint
- * @param {Object} data
  * https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/Searching.html#//apple_ref/doc/uid/TP40017632-CH5-SW1
  */
-export function fetchSearch(data) {
+export function fetchSearch() {
+    const data = {
+        term: localStorage.getItem('term'),
+        entity: localStorage.getItem('entity'),
+        country: localStorage.getItem('country'),
+        explicit: localStorage.getItem('explicit'),
+        limit: localStorage.getItem('limit'),
+
+    };
+
     $.ajax({
         url: `${baseUrl}/search`,
         type: 'GET',

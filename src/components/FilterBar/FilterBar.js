@@ -1,3 +1,5 @@
+import { fetchSearch } from '../../utils/musicApi';
+
 import './FilterBar.scss';
 
 class FilterBar extends HTMLElement {
@@ -14,6 +16,8 @@ class FilterBar extends HTMLElement {
     // This sets to Local Storage the value of the selected option by type
     saveFilter(event, type) {
         localStorage.setItem(type, event.target.value.toLowerCase());
+        // Fetch the search
+        fetchSearch();
     }
 
     render() {
