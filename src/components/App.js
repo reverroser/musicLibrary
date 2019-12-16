@@ -1,5 +1,6 @@
 import './FilterBar/FilterBar';
 import './Header/Header';
+import './SearchResults/SearchResults';
 
 class App extends HTMLElement {
     constructor() {
@@ -12,6 +13,7 @@ class App extends HTMLElement {
             <div class="app">
                 <app-header></app-header>
                 <filter-bar></filter-bar>
+                <search-results></search-results>
             </div>
         `;
     }
