@@ -15,7 +15,7 @@ class FilterBar extends HTMLElement {
 
     // This sets to Local Storage the value of the selected option by type
     saveFilter(event, type) {
-        localStorage.setItem(type, event.target.value.toLowerCase());
+        localStorage.setItem(type, event.target.value);
         // Fetch the search
         fetchSearch();
     }
@@ -28,26 +28,26 @@ class FilterBar extends HTMLElement {
                         <div class="col">
                             <select class="form-control" id="entitySelector">
                                 <option selected disabled>Entity</option>
-                                <option>Song</option>
-                                <option>Artist</option>
-                                <option>Album</option>
-                                <option>Video</option>
+                                <option value="song">Song</option>
+                                <option value="artist">Artist</option>
+                                <option value="album">Album</option>
+                                <option value="musicVideo">Music Video</option>
                             </select>
                         </div>
                         <div class="col">
                             <select class="form-control" id="countrySelector">
                                 <option selected disabled>Country</option>   
-                                <option>Spain</option>
-                                <option>Sweden</option>
-                                <option>United Kingdom</option>
-                                <option>United States</option>
+                                <option value="ES">Spain</option>
+                                <option value="SE">Sweden</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="US">United States</option>
                             </select>
                         </div>
                         <div class="col">
                             <select class="form-control" id="explicitSelector">
                                 <option selected disabled>Explicit content</option>
-                                <option>yes</option>
-                                <option>no</option>
+                                <option value="Yes">yes</option>
+                                <option value="No">no</option>
                             </select>
                         </div>
                         <div class="col">
