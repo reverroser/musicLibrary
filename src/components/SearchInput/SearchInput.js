@@ -22,7 +22,12 @@ class SearchInput extends HTMLElement {
 
     render() {
         this.innerHTML = `
-            <input type="text" id="searchInput" class="search-input" placeholder="Search" />
+            <div class="search-input input-group">
+                <input type="text" id="searchInput" class="form-control" placeholder="Artists, songs...">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" id="search-button">Search</button>
+                </div>
+            </div>
         `;
     }
 }

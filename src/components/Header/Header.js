@@ -9,10 +9,10 @@ class Header extends HTMLElement {
 
     render() {
         this.innerHTML = `
-            <div class="header">
-                I am a header
+            <nav class="header navbar navbar-light">
+                <span class="logo navbar-brand">Music Library</span>
                 <search-input />
-            </div>
+            </nav>
         `;
     }
 }
