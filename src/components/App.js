@@ -1,3 +1,4 @@
+import './FilterBar/FilterBar';
 import './Header/Header';
 
 class App extends HTMLElement {
@@ -9,7 +10,8 @@ class App extends HTMLElement {
     render() {
         this.innerHTML = `
             <div class="app">
-                <app-header />
+                <app-header></app-header>
+                <filter-bar></filter-bar>
             </div>
         `;
     }
