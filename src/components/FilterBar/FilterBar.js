@@ -11,14 +11,18 @@ class FilterBar extends HTMLElement {
         $('#countrySelector')[0].addEventListener('change', (event) => this.saveFilter(event, 'country'));
         $('#explicitSelector')[0].addEventListener('change', (event) => this.saveFilter(event, 'explicit'));
         $('#limitSelector')[0].addEventListener('change', (event) => this.saveFilter(event, 'limit'));
-        // Keeping the last filter selection when refreshing the page
+
+        this.initFilter();
+    }
+
+    // Keeping the last filter selection when refreshing the 
+    initFilter() {
         $('#entitySelector')[0].value = localStorage.getItem('entity');
         $('#countrySelector')[0].value = localStorage.getItem('country');
         $('#explicitSelector')[0].value = localStorage.getItem('explicit');
         $('#limitSelector')[0].value = localStorage.getItem('limit');
-
-
     }
+
 
     // This sets to Local Storage the value of the selected option by type
     saveFilter(event, type) {
