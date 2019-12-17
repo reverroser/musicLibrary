@@ -21,12 +21,12 @@ export function fetchSearch() {
         dataType: 'jsonp',
         success: ({ results }) => {
             // On success emits the results using a custom event and save the results on localStorage
-            $(document).trigger('searchResults', results);
+            $(document).trigger('searchResults', [results]);
             localStorage.setItem('results', JSON.stringify(results));
         },
         error: (error) => {
             // On error emits the error using a custom event
-            $(document).trigger('searchResultsError', error);
+            $(document).trigger('searchResultsError', [error]);
         }
     });
 }
