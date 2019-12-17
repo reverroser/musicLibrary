@@ -11,7 +11,12 @@ class SearchResults extends HTMLElement {
         // TODO: render dynamically the results by entity
         this.render();
         results.forEach(result => {
-            console.log(result);
+            const searchResultsContainer = $('#searchResultsContainer')[0];
+            let resultEl = document.createElement('li');
+            resultEl.innerHTML = result.artistId;
+            console.log(result.artistId);
+
+            searchResultsContainer.appendChild(resultEl);
         });
 
     }
@@ -20,7 +25,9 @@ class SearchResults extends HTMLElement {
         const searchTerm = localStorage.getItem('term');
         this.innerHTML = `
             <div>
-                RESULTS FOR ${searchTerm}
+                RESULTS FOR: ${searchTerm}
+            </div>
+            <div id="searchResultsContainer" class="results-container">
             </div>
         `;
     }
