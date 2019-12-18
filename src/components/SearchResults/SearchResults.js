@@ -2,6 +2,7 @@ import '../ArtistCard/ArtistCard';
 import '../AlbumCard/AlbumCard';
 import '../SongCard/SongCard';
 import './SearchResults.scss';
+import '../VideoCard/VideoCard';
 
 class SearchResults extends HTMLElement {
     constructor() {
