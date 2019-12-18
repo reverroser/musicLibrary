@@ -5,14 +5,9 @@ import './FilterBar.scss';
 class FilterBar extends HTMLElement {
     constructor() {
         super();
-
         this.render();
-        $('#entitySelector')[0].addEventListener('change', (event) => this.saveFilter(event, 'entity'));
-        $('#countrySelector')[0].addEventListener('change', (event) => this.saveFilter(event, 'country'));
-        $('#explicitSelector')[0].addEventListener('change', (event) => this.saveFilter(event, 'explicit'));
-        $('#limitSelector')[0].addEventListener('change', (event) => this.saveFilter(event, 'limit'));
-
         this.initFilter();
+        this.initEventListeners();
     }
 
     // Keeping the last filter selection when refreshing the 
@@ -23,6 +18,13 @@ class FilterBar extends HTMLElement {
         $('#limitSelector')[0].value = localStorage.getItem('limit');
     }
 
+    // Inits the event listeners for all the filters
+    initEventListeners() {
+        $('#entitySelector')[0].addEventListener('change', (event) => this.saveFilter(event, 'entity'));
+        $('#countrySelector')[0].addEventListener('change', (event) => this.saveFilter(event, 'country'));
+        $('#explicitSelector')[0].addEventListener('change', (event) => this.saveFilter(event, 'explicit'));
+        $('#limitSelector')[0].addEventListener('change', (event) => this.saveFilter(event, 'limit'));
+    }
 
     // This sets to Local Storage the value of the selected option by type
     saveFilter(event, type) {

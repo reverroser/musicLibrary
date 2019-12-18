@@ -1,3 +1,4 @@
+import '../SongCard/SongCard';
 import './SearchResults.scss';
 
 class SearchResults extends HTMLElement {
@@ -8,14 +9,24 @@ class SearchResults extends HTMLElement {
     }
 
     updateResults(event, results) {
-        // TODO: render dynamically the results by entity
         this.render();
-        results.forEach(result => {
-            const searchResultsContainer = $('#searchResultsContainer')[0];
-            let resultEl = document.createElement('li');
-            resultEl.innerHTML = result.artistId;
-            console.log(result.artistId);
+        const searchResultsContainer = $('#searchResultsContainer')[0];
+        const entityMap = {
+            song: (song) => `<song-card song='${song}'></song-card>`,
+            album: (album) => `<album-card album='${album}'></album-card-card>`,
+            artist: (artist) => `<artist-card artist='${artist}'></artist-card>`,
+            musicVideo: (musicVideo) => `<music-video-card music-video='${musicVideo}'></music-video-card>`,
 
+
+        };
+        results.forEach(result => {
+            const resultEl = document.createElement('div');
+            /**
+             * We need to convert the object result to a String,
+             * because html attributes must be in a string format.
+             */
+            const formattedResult = JSON.stringify(result);
+            resultEl.innerHTML = entityMap[result.kind](formattedResult); // `<song-card song='${formattedResult}'></song-card>`
             searchResultsContainer.appendChild(resultEl);
         });
 
