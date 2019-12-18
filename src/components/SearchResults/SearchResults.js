@@ -1,3 +1,5 @@
+import '../ArtistCard/ArtistCard';
+import '../AlbumCard/AlbumCard';
 import '../SongCard/SongCard';
 import './SearchResults.scss';
 
@@ -14,7 +16,7 @@ class SearchResults extends HTMLElement {
         const entityMap = {
             song: (song) => `<song-card song='${song}'></song-card>`,
             album: (album) => `<album-card album='${album}'></album-card-card>`,
-            artist: (artist) => `<artist-card artist='${artist}'></artist-card>`,
+            musicArtist: (musicArtist) => `<music-artist-card music-artist='${musicArtist}'></music-artist-card>`,
             musicVideo: (musicVideo) => `<music-video-card music-video='${musicVideo}'></music-video-card>`,
 
 
