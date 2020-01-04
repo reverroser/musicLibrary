@@ -11,7 +11,10 @@ class ArtistCard extends HTMLElement {
         this.innerHTML = `
             <div class="album-card">
                 ${musicArtist.artistName}
+                ${musicArtist.primaryGenreName}
+                ${musicArtist.artistlinkUrl}
             </div>
+
         `;
     }
 }

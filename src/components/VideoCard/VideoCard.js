@@ -11,6 +11,15 @@ class VideoCard extends HTMLElement {
         this.innerHTML = `
             <div class="music-video-card">
                 ${musicArtist.artistName}
+                ${musicArtist.trackName}
+                ${musicArtist.trackTimeMillis}
+                ${musicArtist.collectionName}
+                ${musicArtist.artworkUrl}
+                ${musicArtist.genre}
+                ${musicArtist.trackPrice}
+                ${musicArtist.releaseDate}
+                ${musicArtist.previewUrl}
+                ${musicArtist.trackViewUrl}
             </div>
         `;
     }

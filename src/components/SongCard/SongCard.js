@@ -17,6 +17,15 @@ class SongCard extends HTMLElement {
         this.innerHTML = `
             <div class="song-card">
                 ${song.artistName}
+                ${song.trackName}
+                ${song.trackTimeMillis}
+                ${song.trackViewUrl}
+                ${song.trackPrice}
+                ${song.trackExplicitness}
+                ${song.country}
+                ${song.genre}
+                ${song.previewUrl}
+                ${song.releaseDate}
             </div>
         `;
     }
