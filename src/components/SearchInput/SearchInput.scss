@@ -1,0 +1,26 @@
+.search-input {
+
+    .input-group-prepend {
+        width: 100%;
+    }
+
+    select {
+        margin: 16px 0 24px;
+    }
+
+    // Needs important to overwrite bootstrap styles
+    input {
+        border-radius: 4px 0 0 4px !important;
+        min-width: 240px !important;
+    }
+
+    @media (min-width: 600px) {
+        .input-group-prepend {
+            width: auto;
+        }
+
+        select {
+            margin: 0 24px 0 0;
+        }
+    }
+}

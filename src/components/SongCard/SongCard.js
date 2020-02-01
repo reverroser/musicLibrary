@@ -15,17 +15,15 @@ class SongCard extends HTMLElement {
     render() {
         const song = JSON.parse(this.getAttribute('song'));
         this.innerHTML = `
-            <div class="song-card">
-                ${song.artistName}
-                ${song.trackName}
-                ${song.trackTimeMillis}
-                ${song.trackViewUrl}
-                ${song.trackPrice}
-                ${song.trackExplicitness}
-                ${song.country}
-                ${song.genre}
-                ${song.previewUrl}
-                ${song.releaseDate}
+            <div class="card">
+                <img src="${song.artworkUrl100}" class="card-img-top" alt="${song.artistName}">
+                <div class="card-body">
+                    <h5 class="card-title">${song.trackName}</h5>
+                    <p class="card-text">${song.artistName} - ${song.collectionName}</p>
+                    <p class="card-text">
+                        <small class="text-muted">${this.getSongDuration(song.trackTimeMillis)}</small>
+                    </p>
+                </div>
             </div>
         `;
     }

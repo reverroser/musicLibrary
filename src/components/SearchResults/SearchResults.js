@@ -4,6 +4,13 @@ import '../SongCard/SongCard';
 import './SearchResults.scss';
 import '../VideoCard/VideoCard';
 
+const entityMap = {
+    song: (song) => `<song-card song='${song}'></song-card>`,
+    album: (album) => `<album-card album='${album}'></album-card-card>`,
+    musicArtist: (musicArtist) => `<music-artist-card music-artist='${musicArtist}'></music-artist-card>`,
+    musicVideo: (musicVideo) => `<music-video-card music-video='${musicVideo}'></music-video-card>`,
+};
+
 class SearchResults extends HTMLElement {
     constructor() {
         super();
@@ -15,14 +22,9 @@ class SearchResults extends HTMLElement {
         this.render();
         const searchResultsContainer = $('#searchResultsContainer')[0];
         const entity = localStorage.getItem('entity');
-        const entityMap = {
-            song: (song) => `<song-card song='${song}'></song-card>`,
-            album: (album) => `<album-card album='${album}'></album-card-card>`,
-            musicArtist: (musicArtist) => `<music-artist-card music-artist='${musicArtist}'></music-artist-card>`,
-            musicVideo: (musicVideo) => `<music-video-card music-video='${musicVideo}'></music-video-card>`,
-        };
         results.forEach(result => {
             const resultEl = document.createElement('div');
+            resultEl.className = 'col-lg-3 col-md-4';
             /**
              * We need to convert the object result to a String,
              * because html attributes must be in a string format.
@@ -35,12 +37,10 @@ class SearchResults extends HTMLElement {
     }
 
     render() {
-        const searchTerm = localStorage.getItem('term');
         this.innerHTML = `
-            <div>
-                RESULTS FOR: ${searchTerm}
-            </div>
-            <div id="searchResultsContainer" class="results-container">
+            <div class="container-fluid search-container">
+                <div class="row" id="searchResultsContainer">
+                </div>
             </div>
         `;
     }

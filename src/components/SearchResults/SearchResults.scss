@@ -1,0 +1,9 @@
+.search-container {
+    padding-top: 32px;
+
+    .row {
+        & > div {
+            margin-bottom: 24px;
+        }
+    }
+}

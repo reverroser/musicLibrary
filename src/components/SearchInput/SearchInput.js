@@ -32,7 +32,7 @@ class SearchInput extends HTMLElement {
             url: 'https://itunes.apple.com/search',
             type: 'GET',
             data,
-            dataType: 'jsonp',
+            dataType: 'json',
             success: ({ results }) => {
                 // On success emits the results using a custom event and save the results on localStorage
                 $(document).trigger('searchResults', [results]);
@@ -48,13 +48,15 @@ class SearchInput extends HTMLElement {
     render() {
         this.innerHTML = `
             <div class="search-input input-group">
-                <select class="form-control" id="entitySelector">
-                    <option selected disabled>Entity</option>
-                    <option value="song">Song</option>
-                    <option value="musicArtist">Music artist</option>
-                    <option value="album">Album</option>
-                    <option value="musicVideo">Music Video</option>
-                </select>
+                <div class="input-group-prepend">
+                    <select class="form-control" id="entitySelector">
+                        <option selected disabled>Entity</option>
+                        <option value="song">Song</option>
+                        <option value="musicArtist">Music artist</option>
+                        <option value="album">Album</option>
+                        <option value="musicVideo">Music Video</option>
+                    </select>
+                </div>
                 <input type="text" id="searchInput" class="form-control" placeholder="Artists, songs...">
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="button" id="searchButton">Search</button>
