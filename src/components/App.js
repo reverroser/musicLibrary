@@ -1,4 +1,3 @@
-import './FilterBar/FilterBar';
 import './Header/Header';
 import './SearchResults/SearchResults';
 
@@ -12,7 +11,6 @@ class App extends HTMLElement {
         this.innerHTML = `
             <div class="app">
                 <app-header></app-header>
-                <filter-bar></filter-bar>
                 <search-results></search-results>
             </div>
         `;
