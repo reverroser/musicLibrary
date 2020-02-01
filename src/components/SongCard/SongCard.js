@@ -1,15 +1,9 @@
-import './SongCard.scss';
+import getTrackDuration from '../../utils/getTrackDuration';
 
 class SongCard extends HTMLElement {
     constructor() {
         super();
         this.render();
-    }
-
-    getSongDuration(millis) {
-        const minutes = Math.floor(millis / 60000);
-        const seconds = ((millis % 60000) / 1000).toFixed(0);
-        return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
     }
 
     render() {
@@ -21,7 +15,7 @@ class SongCard extends HTMLElement {
                     <h5 class="card-title">${song.trackName}</h5>
                     <p class="card-text">${song.artistName} - ${song.collectionName}</p>
                     <p class="card-text">
-                        <small class="text-muted">${this.getSongDuration(song.trackTimeMillis)}</small>
+                        <small class="text-muted">${getTrackDuration(song.trackTimeMillis)}</small>
                     </p>
                 </div>
             </div>

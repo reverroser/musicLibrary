@@ -4,10 +4,16 @@ class SearchInput extends HTMLElement {
     constructor() {
         super();
         this.render();
-        $('#entitySelector')[0].value = localStorage.getItem('entity');
+        this.initEntitySelector();
         $('#entitySelector')[0].addEventListener('change', (event) => this.updateSearch(event, 'entity'));
         $('#searchInput')[0].addEventListener('input', (event) => this.updateSearch(event, 'term'));
-        $('#searchButton')[0].addEventListener('click', this.fetchSearch);
+    }
+
+    initEntitySelector() {
+        const entity = localStorage.getItem('entity');
+        if (entity) {
+            $('#entitySelector')[0].value = entity;
+        }
     }
 
     updateSearch(event, type) {
@@ -52,15 +58,11 @@ class SearchInput extends HTMLElement {
                     <select class="form-control" id="entitySelector">
                         <option selected disabled>Entity</option>
                         <option value="song">Song</option>
-                        <option value="musicArtist">Music artist</option>
                         <option value="album">Album</option>
                         <option value="musicVideo">Music Video</option>
                     </select>
                 </div>
-                <input type="text" id="searchInput" class="form-control" placeholder="Artists, songs...">
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="searchButton">Search</button>
-                </div>
+                <input type="text" id="searchInput" class="form-control" placeholder="Search">
             </div>
         `;
     }
